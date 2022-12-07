@@ -22,7 +22,7 @@ int resultingScore(int me, int opponent)
     rules[make_pair(3,1)] = 0;
     rules[make_pair(3,2)] = 6;
     rules[make_pair(3,3)] = 3;
-    return rules[make_pair(me,opponent)];
+    return rules[make_pair(me,opponent)] + me;
 }
 
 void changeMove(int* me, int opponent)
@@ -58,7 +58,7 @@ int main()
             int opponent{line.at(0) - 64}; // converts char to int
             int me{line.at(2) - 87};
             //changeMove(&me,opponent); // Uncomment this line to solve part 2
-            score = score + me + resultingScore(me,opponent);
+            score = score + resultingScore(me,opponent);
         }
         cout << "Score: " << score << endl;
     }
